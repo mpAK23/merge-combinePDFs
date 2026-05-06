@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Combiner</title>
+    <meta name="description" content="A powerful and beautiful tool to combine multiple PDF files into one.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <h1>PDF Combiner</h1>
+            </div>
+            <p>Combine multiple PDF documents easily and securely in your browser.</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section" id="drop-zone">
+                <input type="file" id="file-input" accept="application/pdf" multiple hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h2>Upload your PDFs</h2>
+                    <p>Drag and drop your files here, or <span class="browse-link" id="browse-btn">browse</span></p>
+                    <span class="supported-formats">Supported format: .pdf</span>
+                </div>
+            </div>
+
+            <div class="file-list-container" id="file-list-container" style="display: none;">
+                <div class="list-header">
+                    <h3>Selected Files</h3>
+                    <span class="file-count" id="file-count">0 files</span>
+                </div>
+                <ul class="file-list" id="file-list">
+                    <!-- File items will be inserted here dynamically -->
+                </ul>
+                
+                <div class="actions">
+                    <button id="clear-btn" class="btn btn-secondary">
+                        <i class="fa-solid fa-trash-can"></i> Clear All
+                    </button>
+                    <button id="merge-btn" class="btn btn-primary">
+                        <i class="fa-solid fa-file-export"></i> Merge & Download
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
